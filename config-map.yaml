@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  MYSQL_DATABASE: marketproducts-database
+  MYSQL_HOSTNAME: finance-marketproducts.database.windows.net
+  MYSQL_PORT: "1433"
+  MYSQL_USER: sqladmin
+kind: ConfigMap
+metadata:
+  name: marketdata-rest-services-config
+  namespace: default
