@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: marketdata-rest-services
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: marketdata-rest-services
+  template:
+    metadata:
+      labels:
+        app: marketdata-rest-services
+    spec:
+      containers:
+      - env:
+        - name: MYSQL_DATABASE
+          valueFrom:
+            configMapKeyRef:
+              key: MYSQL_DATABASE
+              name: marketdata-rest-services-config
+        - name: MYSQL_HOSTNAME
+          valueFrom:
+            configMapKeyRef:
+              key: MYSQL_HOSTNAME
+              name: marketdata-rest-services-config
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: MYSQL_PASSWORD
+              name: marketdata-rest-services-secrets
+        - name: MYSQL_PORT
+          valueFrom:
+            configMapKeyRef:
+              key: MYSQL_PORT
+              name: marketdata-rest-services-config
+        - name: MYSQL_USER
+          valueFrom:
+            configMapKeyRef:
+              key: MYSQL_USER
+              name: marketdata-rest-services-config
+        image: mytempacr.azurecr.io/marketdata-restservices-docker:#{Build.BuildId}#
+        imagePullPolicy: IfNotPresent
+        name: marketdata-rest-services
+        ports:
+        - containerPort: 8000
+      restartPolicy: Always
