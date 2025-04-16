@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: sencangitmarketdataapirepo 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sencangitmarketdataapirepo
+  template:
+    metadata:
+      labels:
+        app: sencangitmarketdataapirepo 
+    spec:
+      containers:
+        - name: sencangitmarketdataapirepo 
+          image: mytempacr.azurecr.io/sencangitmarketdataapirepo
+          ports:
+          - containerPort: 8000
