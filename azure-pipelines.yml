@@ -63,6 +63,6 @@ stages:
               connectionType: 'kubernetesServiceConnection'
               kubernetesServiceConnection: 'market-products-cluster-default'
               namespace: 'default'
-              manifests: 'manifests/*.yaml'
+              manifests: '**/manifests/*.yaml'
               containers: '$(containerRegistry)/$(imageRepository):$(tag)'
 
