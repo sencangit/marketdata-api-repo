@@ -40,9 +40,6 @@ stages:
         tags: |
           $(tag)
 
-    - upload: manifests
-      artifact: manifests
-
 - stage: Deploy
   displayName: Deploy stage
   dependsOn: Build
