@@ -45,3 +45,4 @@ spec:
         ports:
         - containerPort: 8000
       restartPolicy: Always
+
