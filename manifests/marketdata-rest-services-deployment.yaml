@@ -39,7 +39,7 @@ spec:
             configMapKeyRef:
               key: MYSQL_USER
               name: marketdata-rest-services-config
-        image: mytempacr.azurecr.io/marketdata-restservices-docker:#{Build.BuildId}#
+        image: mytempacr.azurecr.io/sencangitmarketdataapirepo
         imagePullPolicy: IfNotPresent
         name: marketdata-rest-services
         ports:
