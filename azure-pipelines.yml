@@ -62,10 +62,10 @@ stages:
             inputs:
               action: deploy
               manifests: |
-                $(Pipeline.Workspace)/manifests/config-map.yml
-                $(Pipeline.Workspace)/manifests/secret.yml
-                $(Pipeline.Workspace)/manifests/marketdata-rest-services-deployment.yml
-                $(Pipeline.Workspace)/manifests/marketdata-rest-services-service.yml
+                $(Build.SourcesDirectory)/manifests/config-map.yml
+                $(Build.SourcesDirectory)/manifests/secret.yml
+                $(Build.SourcesDirectory)/manifests/marketdata-rest-services-deployment.yml
+                $(Build.SourcesDirectory)/manifests/marketdata-rest-services-service.yml
               containers: |
                 $(containerRegistry)/$(imageRepository):$(tag)
 
