@@ -70,8 +70,10 @@ stages:
             inputs:
               action: deploy
               manifests: |
-                $(Pipeline.Workspace)/manifests/deployment.yml
-                $(Pipeline.Workspace)/manifests/service.yml
+                $(Pipeline.Workspace)/manifests/config-map.yml
+                $(Pipeline.Workspace)/manifests/secret.yml
+                $(Pipeline.Workspace)/manifests/marketdata-rest-services-deployment.yml
+                $(Pipeline.Workspace)/manifests/marketdata-rest-services-service.yml
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
