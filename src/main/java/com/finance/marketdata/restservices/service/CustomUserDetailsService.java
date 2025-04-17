@@ -1,4 +1,4 @@
-package com.finance.marketdata.restservices.dao;
+package com.finance.marketdata.restservices.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Value;

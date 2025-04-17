@@ -13,7 +13,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.finance.marketdata.restservices.dao.CustomUserDetailsService;
+import com.finance.marketdata.restservices.service.CustomUserDetailsService;
 import com.finance.marketdata.restservices.util.JwtUtil;
 
 import java.io.IOException;

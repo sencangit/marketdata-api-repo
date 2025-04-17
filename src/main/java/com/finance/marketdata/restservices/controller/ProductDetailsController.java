@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.finance.marketdata.restservices.dao.ProductDetailsDaoService;
 import com.finance.marketdata.restservices.models.ProductDetailsRecord;
+import com.finance.marketdata.restservices.service.ProductDetailsDaoService;
 
 @RestController
 @RequestMapping("/v1/productDetails")

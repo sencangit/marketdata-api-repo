@@ -4,11 +4,12 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
+import com.finance.marketdata.restservices.models.CreditRating;
 import com.finance.marketdata.restservices.models.Product;
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Integer> {
+public interface RatingRepository extends JpaRepository<CreditRating, Integer> {
 
-	List<Product> findBytickerName(String ticker_name);
+	List<CreditRating> findByProduct(Product product);
 }
+

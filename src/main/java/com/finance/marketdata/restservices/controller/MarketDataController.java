@@ -1,7 +1,6 @@
 package com.finance.marketdata.restservices.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.finance.marketdata.restservices.dao.ProductDaoService;
 import com.finance.marketdata.restservices.models.Product;
+import com.finance.marketdata.restservices.service.ProductDaoService;
 
 import jakarta.validation.Valid;
 
@@ -39,23 +38,21 @@ public class MarketDataController {
 	}
 	
 	@GetMapping("/{product_id}")
-	public Optional<Product> getProductData(@PathVariable int product_id) {
+	public Product getProductData(@PathVariable int product_id) {
 		log.debug("getProductData called with product_id {}.. ", product_id);
 		return productService.findById(product_id);
 		
 	}
 	
-	@PostMapping("")
-	public Product saveProductData(@Valid @RequestBody Product product) {
-		
-		return productService.saveProduct(product);
+	@PostMapping("/entity/{entity_id}")
+	public Product saveProductData(@Valid @RequestBody Product product, @PathVariable int entity_id) {
+		return productService.saveProduct(product, entity_id);
 	}
 	
 	
-	@PutMapping("")
-	public Product updateProductData(@Valid @RequestBody Product product) {
-
-		return productService.updateProductById(product);
+	@PutMapping("/entity/{entity_id}")
+	public Product updateProductData(@Valid @RequestBody Product product, @PathVariable int entity_id) {
+		return productService.saveProduct(product, entity_id);
 	}
 	
 	
@@ -73,7 +70,5 @@ public class MarketDataController {
 		productService.deleteAllProducts();
 		
 	}
-
-
 
 }
