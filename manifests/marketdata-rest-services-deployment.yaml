@@ -13,36 +13,42 @@ spec:
         app: marketdata-rest-services
     spec:
       containers:
-      - env:
-        - name: MYSQL_DATABASE
-          valueFrom:
-            configMapKeyRef:
-              key: MYSQL_DATABASE
-              name: marketdata-rest-services-config
-        - name: MYSQL_HOSTNAME
-          valueFrom:
-            configMapKeyRef:
-              key: MYSQL_HOSTNAME
-              name: marketdata-rest-services-config
-        - name: MYSQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              key: MYSQL_PASSWORD
-              name: marketdata-rest-services-secrets
-        - name: MYSQL_PORT
-          valueFrom:
-            configMapKeyRef:
-              key: MYSQL_PORT
-              name: marketdata-rest-services-config
-        - name: MYSQL_USER
-          valueFrom:
-            configMapKeyRef:
-              key: MYSQL_USER
-              name: marketdata-rest-services-config
-        image: mytempacr.azurecr.io/sencangitmarketdataapirepo
-        imagePullPolicy: IfNotPresent
-        name: marketdata-rest-services
-        ports:
-        - containerPort: 8000
+        - env:
+            - name: MYSQL_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  key: MYSQL_DATABASE
+                  name: marketdata-rest-services-config
+            - name: MYSQL_HOSTNAME
+              valueFrom:
+                configMapKeyRef:
+                  key: MYSQL_HOSTNAME
+                  name: marketdata-rest-services-config
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: MYSQL_PASSWORD
+                  name: marketdata-rest-services-secrets
+            - name: MYSQL_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: MYSQL_PORT
+                  name: marketdata-rest-services-config
+            - name: MYSQL_USER
+              valueFrom:
+                configMapKeyRef:
+                  key: MYSQL_USER
+                  name: marketdata-rest-services-config
+          image: mytempacr.azurecr.io/sencangitmarketdataapirepo
+          imagePullPolicy: IfNotPresent
+          name: marketdata-rest-services
+          ports:
+            - containerPort: 8000
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
       restartPolicy: Always
-
